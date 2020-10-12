@@ -1,15 +1,19 @@
-const User= require ('./models/users');
-const Plant= require ('./models/plants');
-const History =require ('.models/history');
+const express = require("express");
+const path = require("path");
+const PORT = process.env.PORT || 3001;
+const app = express();
 
-const express= require ('express');
-const mongoose= require ('mongoose');
-const morgan = require ('morgan'); 
-const app= express (); 
-const bcrypt= require ('bcrypt.js');
-const moment = require ('moment');
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
-app.use (express.static('public'));
-app.use (express.json ());
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
-mongoose.Promise = global. Promise; 
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
