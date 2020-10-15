@@ -1,29 +1,17 @@
-# Create React Express App
+## Wooder - Plant Manager 
+*Description: 
 
-## About This Boilerplate
+## Wooder is a water reminder and Plant Manager Application. 
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## How it works: 
+1. Get Started. 
+2. Add your plants into the App_DB.
+3. Add reminders for watering and fertilizing.
+4. Get 1 reminder a day for which plants need care. 
+5. Water and fertilize your plants. 
+6. Drag and drop the reminder box to mark as done.  
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+* Then your done! 
 
-## Starting the app locally
+# Contributors: Conchetta, Calvin, Corey, Nick 
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
-```
-npm install
-```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
