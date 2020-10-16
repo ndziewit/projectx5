@@ -21,13 +21,19 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.9",
+    "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.0.1"
+    "passport-local-mongoose": "^6.0.1",
+    "react": "^16.14.0",
+    "react-debounce-input": "^3.2.2",
+    "react-dom": "^16.14.0",
+    "react-scripts": "^3.4.3"
   }
 }
