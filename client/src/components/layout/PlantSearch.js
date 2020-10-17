@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { DebounceInput } from 'react-debounce-input';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import TREFLE_TOKEN from "./.env";
 
-const PlantItem = ({
+export const PlantItem = ({
   image_url,
   scientific_name,
   common_name,
@@ -13,7 +14,7 @@ const PlantItem = ({
 
   return (<div className="PlantItem">
     <div id="plant-image">
-      <img src={ image_url }>
+      <img src={ image_url } alt="Plant Image">
       </img>
     </div>
     <div id="plant-info">
@@ -21,16 +22,14 @@ const PlantItem = ({
         { common_name }
         </h2>
       <p>{ scientific_name }</p>
-      {/* <p> */}
         { synonyms.length > 0 && <p>AKA: { synonyms.slice(0, 2).join(' or ') }</p>}
-        {/* </p> */}
       <p>{ id }</p>
       
     </div>
   </div>)
 }
 
-const PlantSearch = (props) => {
+export const PlantSearch = (props) => {
 
   const [query, setQuery] = useState('Plant Name')
   const [response, setResponse] = useState({})
@@ -42,7 +41,7 @@ const PlantSearch = (props) => {
   useEffect(() => {
     async function fetchData() {
       if (query && query.length > 0) {
-        const res = await axios.get(`/api/v1/species/search?token=${TREFLE_TOKEN}&q=${query}&limit=5`)
+        const res = await axios.get(`/api/trefle/species/${query}`)
         setResponse(res.data)
       }
     }
@@ -50,17 +49,8 @@ const PlantSearch = (props) => {
   }, [query])
 
   return (<>
-    <div className="columns">
-      <div className="column">
-        <h1 className="title center-text">
-          <i className="fad fa-code"></i>
-        </h1>
-      </div>
-      <div className="column">
-        <h2 className="subtitle">
           <span>
             Plant:
-            
             <DebounceInput
               minLength={3}
               type="text"
@@ -69,16 +59,10 @@ const PlantSearch = (props) => {
               debounceTimeout={300}
             />
           </span>
-        </h2>
-      </div>
-    </div>
-    <div className="columns">
-      <div className="column">
-      </div>
       <div className="column">
         {response.data && response.data.map(e => <PlantItem {...e} key={e.id} />)}
       </div>
-    </div>
+    {/* </div> */}
 
   </>)
 }
