@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { PlantSearch } from "../layout/PlantSearch";
 class Dashboard extends Component {
-  onLogoutClick = e => {
+  onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
-  };render() {
-    const { user } = this.props.auth;return (
+  };
+  render() {
+    const { user } = this.props.auth;
+    return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
@@ -18,12 +21,13 @@ class Dashboard extends Component {
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
             </h4>
+            <PlantSearch />
             <button
               style={{
                 width: "150px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
-                marginTop: "1rem"
+                marginTop: "1rem",
               }}
               onClick={this.onLogoutClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
@@ -35,12 +39,12 @@ class Dashboard extends Component {
       </div>
     );
   }
-}Dashboard.propTypes = {
+}
+Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};const mapStateToProps = state => ({
-  auth: state.auth
-});export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+  auth: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, { logoutUser })(Dashboard);

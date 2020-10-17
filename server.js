@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const dotenv = require("dotenv");
+var cors = require("cors");
 dotenv.config();
 
 const users = require("./routes/api/users");
@@ -11,10 +12,12 @@ const { env } = require("process");
 
 const app = express();
 
+app.use(cors());
+
 //Bodyparser
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 app.use(bodyParser.json());
@@ -24,12 +27,11 @@ const db = require("./config/keys").mongoURI;
 
 //MongoDB  Connection
 mongoose
-  .connect(
-    process.env.MONGODB_URI || "mongodb://localhost/Wooter",
-    { useNewUrlParser: true }
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/Wooter", {
+    useNewUrlParser: true,
+  })
   .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 //Passport Middleware
 app.use(passport.initialize());
@@ -38,7 +40,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //Routes
-app.use("/api/trefle", users);
+app.use("/api/trefle", trefleApi);
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
