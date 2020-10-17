@@ -38,7 +38,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //Routes
-app.use("/api/", trefleApi);
+app.use("/api/trefle", users);
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;

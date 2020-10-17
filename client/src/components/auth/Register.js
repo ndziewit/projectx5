@@ -13,7 +13,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      errors: {}
+      errors: ""
     };
   }
 
@@ -26,6 +26,7 @@ class Register extends Component {
   
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
+      console.log(nextProps.errors);
       this.setState({
         errors: nextProps.errors
       });
@@ -150,7 +151,7 @@ render() {
 Register.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    // errors: PropTypes.string
   };
 
 const mapStateToProps = state => ({
