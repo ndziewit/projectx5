@@ -2,8 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const users = require("./routes/api/users");
+const trefleApi = require("./routes/api/trefle");
+const { env } = require("process");
 
 const app = express();
 
@@ -34,6 +38,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //Routes
+app.use("/api/", trefleApi);
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
