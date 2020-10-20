@@ -48,6 +48,10 @@ export const PlantSearch = (props) => {
 
   return (
     <>
+       <div className="column">
+     {response.data &&
+       response.data.map((e) => <PlantItem {...e} key={e.id} />)}
+   </div>
       <span>
         Plant:
         <DebounceInput
@@ -58,10 +62,6 @@ export const PlantSearch = (props) => {
           debounceTimeout={300}
         />
       </span>
-      <div className="column">
-        {response.data &&
-          response.data.map((e) => <PlantItem {...e} key={e.id} />)}
-      </div>
     </>
   );
 };
@@ -71,4 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const domContainer = document.querySelector("#plant-search");
     ReactDOM.render(React.createElement(PlantSearch), domContainer);
   }
+
+   
 });
