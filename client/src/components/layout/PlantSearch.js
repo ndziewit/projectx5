@@ -36,7 +36,7 @@ export const PlantItem = ({
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary">
-            Share
+            Save
           </Button>
           <Button size="small" color="primary">
             Learn More
