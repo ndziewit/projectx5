@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -36,10 +36,7 @@ export const PlantItem = ({
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary">
-            Save
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
+            Share
           </Button>
         </CardActions>
       </Card>
@@ -70,7 +67,7 @@ export const PlantSearch = (props) => {
     async function fetchData() {
       if (query && query.length > 0) {
         const res = await axios.get(
-          `http://localhost:5000/api/trefle/species/${query}`
+          `/api/trefle/species/${query}`
         );
         console.log(res);
         setResponse(res);
