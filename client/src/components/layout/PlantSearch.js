@@ -1,4 +1,4 @@
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -11,32 +11,48 @@ import { DebounceInput } from "react-debounce-input";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 100,
+  },
+});
+
+
 export const PlantItem = ({
   image_url,
   scientific_name,
   common_name,
   synonyms,
   id,
+  
 }) => {
+  const classes = useStyles();
   return (
       <Card >
         <CardActionArea>
           <CardMedia
-            image={ image_url }
-            title={ scientific_name }
+            className={classes.media}
+            image={image_url}
+            title="Image of your plant"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h3" component="h2">
               {common_name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-            {synonyms.length > 0 && <p>AKA: {synonyms.slice(0, 2).join(" or ")}</p>}
+            <Typography gutterBottom variant="h4" component="h2">
+              {scientific_name}
             </Typography>
+            {/* <Typography variant="body2" color="textSecondary" component="p">
+            {synonyms.slice(0, 2).join(" or ")}
+            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
+          <Button size="large" color="primary">
+            Add to Garden
           </Button>
         </CardActions>
       </Card>
