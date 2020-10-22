@@ -1,4 +1,4 @@
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     maxWidth: 345,
   },
   media: {
-    height: 100,
+    height: 500,
   },
 });
 
@@ -84,7 +84,7 @@ export const PlantSearch = (props) => {
       if (query && query.length > 0) {
         const res = await axios.get(
           `/api/trefle/species/${query}`
-        );
+          );
         console.log(res);
         setResponse(res);
       }
