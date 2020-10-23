@@ -51,24 +51,22 @@ export const PlantItem = ({
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="large" color="primary">
+          <Button size="large" color="primary" onClick={handleSubmit}>
             Add to Garden
           </Button>
         </CardActions>
       </Card>
     );
+
+          }
+//onClick will run function to call API of plant and add to Database
+
+function handleSubmit(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
   }
-    // <div className="PlantItem">
-    //   <div id="plant-image">
-    //     <img src={image_url} alt="Plant Image"></img>
-    //   </div>
-    //   <div id="plant-info">
-    //     <h2>{common_name}</h2>
-    //     <p>{scientific_name}</p>
-    //     {synonyms.length > 0 && <p>AKA: {synonyms.slice(0, 2).join(" or ")}</p>}
-    //     <p>{id}</p>
-    //   </div>
-    // </div>
+  
+
 
 
 export const PlantSearch = (props) => {
