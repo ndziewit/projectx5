@@ -25,8 +25,7 @@ export const PlantItem = ({
   image_url,
   scientific_name,
   common_name,
-  synonyms,
-  id,
+  id
   
 }) => {
   const classes = useStyles();
@@ -45,9 +44,6 @@ export const PlantItem = ({
             <Typography gutterBottom variant="h4" component="h2">
               {scientific_name}
             </Typography>
-            {/* <Typography variant="body2" color="textSecondary" component="p">
-            {synonyms.slice(0, 2).join(" or ")}
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
@@ -57,17 +53,26 @@ export const PlantItem = ({
         </CardActions>
       </Card>
     );
+    function handleSubmit(e) {
+      e.preventDefault();
+      console.log('The link was clicked.');
+      let newPlant = {
+        "name": common_name,
+        "scientific_name": scientific_name
+      };
+      console.log(newPlant);
 
-          }
-//onClick will run function to call API of plant and add to Database
-
-function handleSubmit(e) {
-    e.preventDefault();
-    console.log('The link was clicked.');
-  }
-  
-
-
+      return fetch('/api/garden', {
+        method: 'POST',
+        body: JSON.stringify(newPlant),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(data => console.log(data)); 
+}
+    }
+          
 
 export const PlantSearch = (props) => {
   const [query, setQuery] = useState("Plant Name");
