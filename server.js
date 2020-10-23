@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const users = require("./routes/api/users");
+const garden = require("./routes/api/garden");
 const trefleApi = require("./routes/api/trefle");
 const { env } = require("process");
 
@@ -25,7 +26,7 @@ const db = require("./config/keys").mongoURI;
 //MongoDB  Connection
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb://localhost/Wooder",
+    process.env.MONGODB_URI || "mongodb://localhost/Wooter",
     { useNewUrlParser: true }
   )
   .then(() => console.log("MongoDB connected"))
@@ -40,6 +41,7 @@ require("./config/passport")(passport);
 //Routes
 app.use("/api/trefle", trefleApi);
 app.use("/api/users", users);
+app.use("/api/garden", garden);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port} !`));
