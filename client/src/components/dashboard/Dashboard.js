@@ -18,10 +18,10 @@ class Dashboard extends Component {
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              <b>Hi,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+                You are logged into Wooder, a {" "}
+                <span style={{ fontFamily: "monospace" }}>M.E.R.N.</span> App
               </p>
             </h4>
             <PlantSearch />
@@ -35,7 +35,7 @@ class Dashboard extends Component {
               }}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
-             Go to My Garden
+             Garden
             </button>
         
         </Link>
