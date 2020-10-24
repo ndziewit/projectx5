@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const User = require("../models/User")
+// const User = require("../models/User")
 
-const GardenSchema = new Schema({
+const gardenSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -12,5 +12,5 @@ const GardenSchema = new Schema({
         required: true
     }
 });
-const Garden = mongoose.model("garden", GardenSchema);
-module.exports = User;
+const Garden = mongoose.model("garden", gardenSchema);
+module.exports = Garden;

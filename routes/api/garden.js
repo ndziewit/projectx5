@@ -17,7 +17,7 @@ const Garden = require("../../models/Garden");
 //         return res.send(error);
 //       });
 //   });
-router.get("/api/garden", (req, res) => {
+router.get("/", (req, res) => {
     Garden.find()
       .then(dbWooter => {
         res.json(dbWooter);
@@ -27,7 +27,7 @@ router.get("/api/garden", (req, res) => {
       });
   });
 
-router.post("/api/garden", (req, res) => {
+router.post("/", (req, res) => {
 Garden.create({})
     .then(dbWooter => {
     res.json(dbWooter);
