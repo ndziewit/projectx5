@@ -1,20 +1,24 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import store from "../../store";
 
-class Garden extends Component {
-    addPlant () {
-        // Add method for add plants to garden
-    }
-    render() {
-    return (
-        <div>
-            <button onClick={this.addPlant()}>
-                CLICK ME
-            </button>
-        </div>
-        
-    )
-    }
+function Garden() {
+  const [garden, setGarden] = useState([]);
+  const user = store.getState().auth.user.id;
+  useEffect(() => {
+    fetch("api/users/" + user, { method: "GET" }).then((user) => {
+      user.json().then((user) => {
+        console.log(user.garden);
+        setGarden(user.garden);
+      });
+    });
+  });
+  return (
+    <div>
+      {garden.map((plant) => (
+        <p>{plant.name}</p>
+      ))}
+    </div>
+  );
 }
 
 export default Garden;
-

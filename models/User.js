@@ -17,6 +17,10 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    garden: {
+        type: Array,
+        default: []
     }
 });
 const User = mongoose.model("users", UserSchema);

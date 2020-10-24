@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { PlantSearch } from "../layout/PlantSearch";
+import { Link } from "react-router-dom";
+
 class Dashboard extends Component {
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
   render() {
     const { user } = this.props.auth;
     return (
@@ -22,6 +25,22 @@ class Dashboard extends Component {
               </p>
             </h4>
             <PlantSearch />
+        <Link to={"/garden"}>
+        <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem",
+              }}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+             Go to My Garden
+            </button>
+        
+        </Link>
+       
+
             <button
               style={{
                 width: "150px",

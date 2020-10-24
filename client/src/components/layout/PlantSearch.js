@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 import { DebounceInput } from "react-debounce-input";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import store from "../../store";
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +26,8 @@ export const PlantItem = ({
   image_url,
   scientific_name,
   common_name,
-  id
+  id,
+  user
   
 }) => {
   const classes = useStyles();
@@ -58,7 +60,8 @@ export const PlantItem = ({
       console.log('The link was clicked.');
       let newPlant = {
         "name": common_name,
-        "scientific_name": scientific_name
+        "scientific_name": scientific_name,
+        "user": user.id
       };
       console.log(newPlant);
 
@@ -77,12 +80,14 @@ export const PlantItem = ({
 export const PlantSearch = (props) => {
   const [query, setQuery] = useState("Plant Name");
   const [response, setResponse] = useState({});
-
+  const [user, setUser] = useState({});
   const onQueryChange = (query) => {
     setQuery(query);
   };
 
   useEffect(() => {
+    console.log(store.getState().auth.user)
+    setUser(store.getState().auth.user)
     async function fetchData() {
       if (query && query.length > 0) {
         const res = await axios.get(
@@ -93,13 +98,14 @@ export const PlantSearch = (props) => {
       }
     }
     fetchData();
+    console.log(user);
   }, [query]);
 
   return (
     <><div>
             <div>
         {response.data &&
-          response.data.map((e) => <PlantItem {...e} key={e.id} />)}
+          response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
       </div>
 
       <span>
