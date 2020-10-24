@@ -78,7 +78,7 @@ export const PlantItem = ({
           
 
 export const PlantSearch = (props) => {
-  const [query, setQuery] = useState("Plant Name");
+  const [query, setQuery] = useState("");
   const [response, setResponse] = useState({});
   const [user, setUser] = useState({});
   const onQueryChange = (query) => {
