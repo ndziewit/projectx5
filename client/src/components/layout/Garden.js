@@ -14,6 +14,9 @@ function Garden() {
   });
   return (
     <div>
+    <h3>My Garden</h3>
+    {/* </div>
+    <div> */}
       {garden.map((plant) => (
         <p>{plant.name}</p>
       ))}
