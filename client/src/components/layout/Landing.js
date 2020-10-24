@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import logo from './images/logo.png';
+
 
 class Landing extends Component {
   render() {
@@ -7,6 +9,7 @@ class Landing extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
+          <img src={logo} />
             <h4>
               <b>Create</b> your home 'Garden' with reminders on when to water your plant babies.
             </h4>
