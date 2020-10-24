@@ -3,6 +3,7 @@ const router = express.Router();
 const { error } = require("console");
 const axios = require("axios");
 const Garden = require("../../models/Garden");
+const User = require("../../models/User");
 // const mongoose = require("mongoose");
 
 // router.get("/", (req, res) => {
@@ -18,22 +19,33 @@ const Garden = require("../../models/Garden");
 //       });
 //   });
 router.get("/", (req, res) => {
-    Garden.find()
-      .then(dbWooter => {
-        res.json(dbWooter);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
+  Garden.find()
+    .then((dbWooter) => {
+      res.json(dbWooter);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 router.post("/", (req, res) => {
-Garden.create({})
-    .then(dbWooter => {
-    res.json(dbWooter);
+  console.log(req.body);
+  Garden.create(req.body)
+    .then((dbWooter) => {
+      console.log(dbWooter);
+      // User.findById(req.body.user, (err,user) => {
+      //   if (err) throw err;
+      //   console.log(user);
+      // } )
+      User.findByIdAndUpdate(
+         req.body.user,
+        {
+          $push: { garden: dbWooter },
+        }, {new: true}
+      ).then((user)=> {console.log(user)})
     })
-    .catch(err => {
-    res.json(err);
+    .catch((err) => {
+      res.json(err);
     });
 });
 
@@ -49,5 +61,5 @@ Garden.create({})
 //         return res.send(error);
 //       });
 //   });
-  
-  module.exports = router;
+
+module.exports = router;
