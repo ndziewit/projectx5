@@ -17,18 +17,20 @@ class Dashboard extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
-              <b>Hi,</b> {user.name.split(" ")[0]}
+            <h4 className="flow-text text-darken-1">
+              <b style={{
+                                fontFamily: "monospace"
+                            }}>Hi, {user.name.split(" ")[0]} </b>
               <p className="flow-text grey-text text-darken-1">
-                You are logged into Wooder, a {" "}
-                <span style={{ fontFamily: "monospace" }}>M.E.R.N.</span> App
+
+                <span style={{ fontFamily: "CourierNewPS-BoldItalicMT" }}>Actively ridding the world of needless plant deaths.</span>
               </p>
             </h4>
             <PlantSearch />
         <Link to={"/garden"}>
         <button
               style={{
-                width: "150px",
+                width: "140px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem",
@@ -37,13 +39,11 @@ class Dashboard extends Component {
             >
              Garden
             </button>
-        
         </Link>
-       
-
+        <div className="col s6">
             <button
               style={{
-                width: "150px",
+                width: "140px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem",
@@ -53,6 +53,7 @@ class Dashboard extends Component {
             >
               Logout
             </button>
+            </div>
           </div>
         </div>
       </div>
