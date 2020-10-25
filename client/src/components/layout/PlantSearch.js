@@ -108,8 +108,8 @@ export const PlantSearch = (props) => {
           response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
       </div>
 
-      <span>
-        Plant:
+      <span style={{fontFamily: "monospace"}}>
+        Search for your Plant Baby:
         <DebounceInput
           minLength={3}
           type="text"
