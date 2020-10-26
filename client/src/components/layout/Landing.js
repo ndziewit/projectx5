@@ -9,7 +9,7 @@ class Landing extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-          <img style={{width: '300px', height: '300px'}} src={logo} />
+          <img style={{width: '300px', height: '300px'}} src={logo} alt="Wooder Logo"/>
           <p className="flow-text grey-text text-darken-1">
             <h4 style={{ fontFamily: "CourierNewPS-ItalicMT" }}>
               Create your home Garden with reminders on when to water your plant babies.
