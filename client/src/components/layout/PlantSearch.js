@@ -31,12 +31,7 @@ export const PlantSearch = (props) => {
 
   return (
     <><div>
-            <div>
-        {response.data &&
-          response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
-      </div>
-
-      <span style={{fontFamily: "monospace"}}>
+      <div style={{fontFamily: "monospace"}}>
         Search for your Plant Baby:
         <DebounceInput
           minLength={3}
@@ -45,7 +40,12 @@ export const PlantSearch = (props) => {
           value={query}
           debounceTimeout={300}
         />
-      </span>
+      </div>
+
+      <div>
+        {response.data &&
+          response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
+      </div>
       </div></>
   );
 };
