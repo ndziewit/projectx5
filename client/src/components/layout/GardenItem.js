@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
+
   title: {
     fontSize: 14,
   },
@@ -18,6 +19,9 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
+
+
+// function waterEmail();
 
 export default function GardenItem({name, scientific_name}) {
   const classes = useStyles();
@@ -36,6 +40,7 @@ export default function GardenItem({name, scientific_name}) {
         <Button size="small"
 //On click event to Nodemailer goes here
         // onClick={sendEmail()}
+
          >
             Set Water Interval
             </Button>
