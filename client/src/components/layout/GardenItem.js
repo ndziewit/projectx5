@@ -5,15 +5,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+// import sendEmail from './email'
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
   },
   title: {
     fontSize: 14,
@@ -22,8 +18,6 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
-
-// function waterEmail();
 
 export default function GardenItem({name, scientific_name}) {
   const classes = useStyles();
@@ -40,7 +34,8 @@ export default function GardenItem({name, scientific_name}) {
       </CardContent>
       <CardActions>
         <Button size="small"
-        // onClick={waterEmail()}
+//On click event to Nodemailer goes here
+        // onClick={sendEmail()}
          >
             Set Water Interval
             </Button>
