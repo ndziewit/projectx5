@@ -23,8 +23,44 @@ const useStyles = makeStyles({
 
 // function waterEmail();
 
+function displayTime() {
+  var startTime = 10;
+  var myVar = setTimeout( ()=>{
+    fetch("/api/email",{
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"plant": "fern"})
+    })
+  }, 1000);
+  // function myTimer() {
+  //   // startTime--;
+  //   // if (startTime === 0) {
+  //   //   clearInterval(myVar);
+  //   //   alert("time’s up");
+  //   // }
+  }
+
+
 export default function GardenItem({name, scientific_name}) {
   const classes = useStyles();
+  
+    const submitRequest = async (e) => {
+      e.preventDefault();
+      const response = await fetch("/nodemailer3", { 
+        method: 'POST', 
+        headers: { 
+            'Content-type': 'application/json'
+        }, 
+        body: "testing"
+    }); 
+      const resData = await response; 
+      alert(JSON.stringify(resData));
+      if (resData.status === 'success'){
+        alert("Message Sent.");
+    }else{
+        alert("Message failed to send.")
+    };
+}
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -40,11 +76,13 @@ export default function GardenItem({name, scientific_name}) {
         <Button size="small"
 //On click event to Nodemailer goes here
         // onClick={sendEmail()}
-
+          onClick={
+            displayTime
+          }
          >
             Set Water Interval
             </Button>
       </CardActions>
     </Card>
-  );
-}
+  
+  )}

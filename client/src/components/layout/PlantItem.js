@@ -55,7 +55,7 @@ const PlantItem = ({
         console.log('The link was clicked.')
 
         //Nested API call for more information GOES HERE inside of .then() function
-        .then();
+        // .then();
         let newPlant = {
           "name": common_name,
           "scientific_name": scientific_name,

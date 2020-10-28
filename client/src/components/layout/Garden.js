@@ -6,15 +6,19 @@ function Garden() {
   const [garden, setGarden] = useState([]);
   const user = store.getState().auth.user.id;
   useEffect(() => {
-    fetch("api/users/" + user, { method: "GET" })
-    .then((user) => {
-      user.json()
+    if (garden.length <= 0) {
+      fetch("api/users/" + user, { method: "GET" })
       .then((user) => {
-        setGarden(user.garden);
-        // console.log(garden);
+        user.json()
+        .then((user) => {
+          console.log(user.garden);
+          setGarden(user.garden);
+          // console.log(garden);
+        });
       });
-    });
-  });
+    }
+  },[garden]);
+    
   // console.log(garden);
   return (
     <div>
