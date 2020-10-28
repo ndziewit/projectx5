@@ -13,7 +13,7 @@ const { env } = require("process");
 
 const app = express();
 
-let nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
   host: "smtp.mail.yahoo.com", 
     port: 465,
@@ -26,7 +26,7 @@ let transporter = nodemailer.createTransport({
 
 const { compareSync } = require("bcryptjs");
 
-//Bodyparser
+//Bodyparse
 app.use(
   bodyParser.urlencoded({
     extended: true
