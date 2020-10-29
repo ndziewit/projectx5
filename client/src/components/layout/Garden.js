@@ -21,7 +21,11 @@ function Garden() {
     
   // console.log(garden);
   return (
-    <div>
+    <div className="col s12 center-align"
+    style= {{
+      marginLeft: "18%",
+      marginRight: "18%"
+    }}>
     <h3>My Garden</h3>
       {garden.map((plant) => (
         <GardenItem {...plant} key={plant.id} />      ))}

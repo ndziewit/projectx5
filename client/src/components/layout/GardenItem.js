@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { PlantSearch } from './PlantSearch';
 // import sendEmail from './email'
 
 const useStyles = makeStyles({
@@ -24,12 +25,12 @@ const useStyles = makeStyles({
 // function waterEmail();
 
 function displayTime() {
-  var startTime = 10;
+  var startTime = 3;
   var myVar = setTimeout( ()=>{
     fetch("/api/email",{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({"plant": "fern"})
+      body: JSON.stringify({"plant": "plant"})
     })
   }, 1000);
   // function myTimer() {

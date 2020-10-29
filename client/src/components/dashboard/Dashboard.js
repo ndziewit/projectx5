@@ -19,11 +19,11 @@ class Dashboard extends Component {
           <div className="col s12 center-align">
             <h4 className="flow-text text-darken-1">
               <b style={{
-                                fontFamily: "monospace"
+                                fontFamily: "Courier"
                             }}>Hi, {user.name.split(" ")[0]} </b>
               <p className="flow-text grey-text text-darken-1">
 
-                <span style={{ fontFamily: "CourierNewPS-BoldItalicMT" }}>Actively ridding the world of needless plant deaths.</span>
+                <span style={{ fontFamily: "Courier" }}>Actively ridding the world of needless plant deaths.</span>
               </p>
             </h4>
             <PlantSearch />
@@ -32,10 +32,10 @@ class Dashboard extends Component {
               style={{
                 width: "140px",
                 borderRadius: "3px",
-                letterSpacing: "1.5px",
+                letterSpacing: "2.5px",
                 marginTop: "1rem",
               }}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="btn btn-large waves-effect waves-light hoverable black accent-3"
             >
              Garden
             </button>
@@ -45,11 +45,11 @@ class Dashboard extends Component {
               style={{
                 width: "140px",
                 borderRadius: "3px",
-                letterSpacing: "1.5px",
+                letterSpacing: "2.5px",
                 marginTop: "1rem",
               }}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="btn btn-large waves-effect waves-light hoverable black accent-3"
             >
               Logout
             </button>
