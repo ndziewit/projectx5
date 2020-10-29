@@ -19,8 +19,8 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
   auth: {
-    user: "WooderApp@yahoo.com",
-    pass: "rqlkbgmdysxgzvnh"
+    user: "WooderApptest@yahoo.com",
+    pass: "gbscogzcuprsnmyz"
   }
 });
 
@@ -73,13 +73,14 @@ app.use("/api/garden", garden);
 app.post('/api/email', (req, res, next) => {
   res.json("status")
   var content = req.body.plant
-
+  console.log(req.body.plant)
+  
   var mail = {
-    from: "WooderApp@yahoo.com", 
-    to: "cory.manthou@gmail.com", 
+    from: "WooderApptest@yahoo.com", 
+    to: "cory.manthou@yahoo.com", 
     subject: "It's Time to Water a Plant!",
     // message: "Time to Water!",
-    text: content
+    text: "Hi Cory, your " + content + " needs water! Go back to your Wooder garden to restart a new water timer."
   }
 
   transporter.sendMail(mail, (err, data) => {

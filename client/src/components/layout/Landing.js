@@ -11,7 +11,7 @@ class Landing extends Component {
           <div className="col s12 center-align">
           <img style={{width: '300px', height: '300px'}} src={logo} alt="Wooder Logo"/>
           <p className="flow-text grey-text text-darken-1">
-            <h4 style={{ fontFamily: "CourierNewPS-ItalicMT" }}>
+            <h4 style={{ fontFamily: "Courier" }}>
               Create your home Garden with reminders on when to water your plant babies.
             </h4>
             </p>
@@ -24,7 +24,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable black accent-3"
               >
                 Register
               </Link>
@@ -37,7 +37,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable black accent-3"
               >
                 Log In
               </Link>
