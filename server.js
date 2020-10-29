@@ -85,15 +85,15 @@ app.post('/api/email', (req, res, next) => {
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       res.json({
-        status: 'fail'
-      })
+        status: 'fail',
+      });
     } else {
       res.json({
-       status: 'success'
+       status: 'success',
       })
     }
   })
-})
+});
 
 
 app.get("*", (req, res) => {

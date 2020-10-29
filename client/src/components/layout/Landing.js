@@ -9,10 +9,10 @@ class Landing extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-          <img style={{width: '300px', height: '300px'}} src={logo} alt="Wooder Logo"/>
+          <img style={{width: '300px', height: '300px'}} src={logo} alt="Wooder Logo"/> 
           <p className="flow-text grey-text text-darken-1">
-            <h4 style={{ fontFamily: "CourierNewPS-ItalicMT" }}>
-              Create your home Garden with reminders on when to water your plant babies.
+            <h4 style={{ fontFamily: "Courier" }}>
+              Create your home Garden with reminders on when to water your plants.
             </h4>
             </p>
             <br />
@@ -22,9 +22,11 @@ class Landing extends Component {
                 style={{
                   width: "140px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
+                  letterSpacing: "2.5px",
+                  
+              
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable black accent-3"
               >
                 Register
               </Link>
@@ -35,9 +37,11 @@ class Landing extends Component {
                 style={{
                   width: "140px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
+                  letterSpacing: "2.5px",
+                  
+                  
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable black accent-3"
               >
                 Log In
               </Link>

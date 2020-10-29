@@ -7,7 +7,7 @@ import PlantItem from "./PlantItem";
 
 export const PlantSearch = (props) => {
   const [query, setQuery] = useState("");
-  const [response, setResponse] = useState({});
+  const [response, setResponse] = useState({ data: []});
   const [user, setUser] = useState({});
   const onQueryChange = (query) => {
     setQuery(query);
@@ -30,13 +30,14 @@ export const PlantSearch = (props) => {
   }, [query]);
 
   return (
-    <><div>
+    <div>
             <div>
-        {response.data &&
-          response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
+        {/* {response.data && */}
+         { response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
       </div>
 
-      <span style={{fontFamily: "monospace"}}>
+      <span style={{fontFamily: "courier"}}>
+        
         Search for your Plant Baby:
         <DebounceInput
           minLength={3}
@@ -46,7 +47,7 @@ export const PlantSearch = (props) => {
           debounceTimeout={300}
         />
       </span>
-      </div></>
+      </div>
   );
 };
 
