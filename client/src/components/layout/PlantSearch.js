@@ -5,13 +5,9 @@ import axios from "axios";
 import store from "../../store";
 import PlantItem from "./PlantItem";
 
-const resultsStyle = {
-  overflow: "show",
-};
-
 export const PlantSearch = (props) => {
   const [query, setQuery] = useState("");
-  const [response, setResponse] = useState({ data: []});
+  const [response, setResponse] = useState({});
   const [user, setUser] = useState({});
   const onQueryChange = (query) => {
     setQuery(query);
@@ -34,13 +30,13 @@ export const PlantSearch = (props) => {
   }, [query]);
 
   return (
-    <div style={resultsStyle}>
+    <><div>
       <div>
-        {/* {response.data && */}
-           { response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
+        {response.data &&
+           response.data.map((e) => <PlantItem {...e} user={user}key={e.id} />)}
       </div>
 
-      <span style={{fontFamily: "courier"}}>
+      <span style={{fontFamily: "Courier"}}>
 
         Search for your Plant Baby :
         <DebounceInput
@@ -51,7 +47,7 @@ export const PlantSearch = (props) => {
           debounceTimeout={300}
         />
         </span>
-      </div>
+      </div></>
   );
 };
 
