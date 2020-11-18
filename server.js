@@ -80,7 +80,7 @@ app.post('/api/email', (req, res, next) => {
     to: "wooderapp@gmail.com", 
     subject: "It's Time to Water a Plant!",
     // message: "Time to Water!",
-    text: "Hi Chelsea"
+    text: "Your Fiddle-leaf philodendron needs watering!"
   }
 
   transporter.sendMail(mail, (err, data) => {
