@@ -77,10 +77,10 @@ app.post('/api/email', (req, res, next) => {
   
   var mail = {
     from: "WooderApptest@yahoo.com", 
-    to: "cory.manthou@yahoo.com", 
+    to: "wooderapp@gmail.com", 
     subject: "It's Time to Water a Plant!",
     // message: "Time to Water!",
-    text: "Hi Cory, your " + content + " needs water! Go back to your Wooder garden to restart a new water timer."
+    text: "Hi Chelsea"
   }
 
   transporter.sendMail(mail, (err, data) => {
